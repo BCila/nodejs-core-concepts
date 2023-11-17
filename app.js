@@ -1,13 +1,17 @@
-const http = require('node:http');
-const fs = require('node:fs');
+const EventEmitter = require("./myeventemitter");
 
-const server = http.createServer();
-server.on('request', (request, response) => {
-	const result = fs.readFileSync('./text.txt');
-	response.setHeader('Content-Type','text/plain');
-	response.end(result);
+const myEmitter = new EventEmitter();
+
+myEmitter.on("foo", () => {
+  console.log("Foo emitter 1");
 });
 
-server.listen(4080, '127.0.0.1', () => {
-	console.log('Server started on:', server.address());
+myEmitter.on("foo", () => {
+  console.log("Foo emitter 2");
 });
+
+myEmitter.on("bar", () => {
+  console.log("bar emitter 2");
+});
+
+myEmitter.emit("foo");

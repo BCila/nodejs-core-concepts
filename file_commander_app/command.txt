@@ -1,0 +1,1 @@
+rename the file /home/bcila/coding/nodejs-core-concepts/file_commander_app/new.txt to /home/bcila/coding/nodejs-core-concepts/file_commander_app/new2.txt
